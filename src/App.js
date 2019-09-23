@@ -7,8 +7,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      characters: []
+      characters: [],
+      query: ""
     };
+
+    this.getUserQuery = this.getUserQuery.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +26,21 @@ class App extends React.Component {
     });
   }
 
+  getUserQuery(event) {
+    const query = event.currentTarget.value;
+
+    this.setState({
+      query: query
+    });
+  }
+
   render() {
-    const { characters } = this.state;
+    const { characters, query } = this.state;
     return (
       <div className="app">
         <h1 className="title">Rick and Morty</h1>
-        <CharacterList characters={characters} />
+        <input type="text" onChange={this.getUserQuery} />
+        <CharacterList characters={characters} query={query} />
       </div>
     );
   }
