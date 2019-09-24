@@ -6,10 +6,10 @@ const CharacterDetails = props => {
   const { routerProps, characters } = props;
   const id = parseInt(routerProps.match.params.id);
 
-  const character = characters.filter(item => item.id === id);
+  const character = characters.find(item => item.id === id);
 
-  if (character[0]) {
-    const { name, image, status, species, origin, episode } = character[0];
+  if (character) {
+    const { name, image, status, species, origin, episode } = character;
 
     return (
       <React.Fragment>
