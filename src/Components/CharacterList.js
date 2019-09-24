@@ -13,7 +13,10 @@ const CharacterList = props => {
         .map(character => {
           return (
             <li className="character" key={character.id}>
-              <Link to="/character-detail" className="pokemon-link">
+              <Link
+                to={`/character-detail/${character.id}`}
+                className="pokemon-link"
+              >
                 <CharacterCard
                   name={character.name}
                   image={character.image}
