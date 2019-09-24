@@ -1,6 +1,8 @@
 import React from "react";
 import { fetchCharacters } from "./services/FetchCharacters";
-import CharacterList from "./Components/CharacterList";
+import Home from "./Components/Home";
+import CharacterDetails from "./Components/CharacterDetails";
+import { Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -39,8 +41,23 @@ class App extends React.Component {
     return (
       <div className="app">
         <h1 className="title">Rick and Morty</h1>
-        <input type="text" onChange={this.getUserQuery} />
-        <CharacterList characters={characters} query={query} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <Home
+                  getUserQuery={this.getUserQuery}
+                  query={query}
+                  characters={characters}
+                />
+              );
+            }}
+          />
+
+          <Route path="/character-detail" component={CharacterDetails} />
+        </Switch>
       </div>
     );
   }
