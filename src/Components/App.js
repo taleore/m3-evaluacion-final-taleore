@@ -1,10 +1,10 @@
 import React from "react";
-import { fetchCharacters } from "./services/FetchCharacters";
-import Home from "./Components/Home";
-import CharacterDetails from "./Components/CharacterDetails";
+import { fetchCharacters } from "../services/FetchCharacters";
+import Home from "./Home";
+import CharacterDetails from "./CharacterDetails";
 import { Switch, Route } from "react-router-dom";
-import logo from "./images/logo.png";
-import "./stylesheets/App.scss";
+import logo from "../images/logo.png";
+import "../stylesheets/App.scss";
 
 class App extends React.Component {
   constructor(props) {
