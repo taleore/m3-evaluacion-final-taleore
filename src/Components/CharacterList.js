@@ -1,11 +1,12 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 import { Link } from "react-router-dom";
+import "../stylesheets/CharacterList.scss";
 
 const CharacterList = props => {
   const { characters, query } = props;
   return (
-    <ul className="characters">
+    <ul className="character_list">
       {characters
         .filter(myCharacter =>
           myCharacter.name.toUpperCase().includes(query.toUpperCase())
@@ -15,7 +16,7 @@ const CharacterList = props => {
             <li className="character" key={character.id}>
               <Link
                 to={`/character-detail/${character.id}`}
-                className="pokemon-link"
+                className="character-link"
               >
                 <CharacterCard
                   name={character.name}

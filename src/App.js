@@ -3,6 +3,8 @@ import { fetchCharacters } from "./services/FetchCharacters";
 import Home from "./Components/Home";
 import CharacterDetails from "./Components/CharacterDetails";
 import { Switch, Route } from "react-router-dom";
+import logo from "./images/logo.png";
+import "./stylesheets/App.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -40,34 +42,38 @@ class App extends React.Component {
     const { characters, query } = this.state;
     return (
       <div className="app">
-        <h1 className="title">Rick and Morty</h1>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return (
-                <Home
-                  getUserQuery={this.getUserQuery}
-                  query={query}
-                  characters={characters}
-                />
-              );
-            }}
-          />
+        <header className="header">
+          <img className="logo" src={logo} alt="" />
+        </header>
+        <main className="app_main">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <Home
+                    getUserQuery={this.getUserQuery}
+                    query={query}
+                    characters={characters}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            path="/character-detail/:id"
-            render={routerProps => {
-              return (
-                <CharacterDetails
-                  routerProps={routerProps}
-                  characters={characters}
-                />
-              );
-            }}
-          />
-        </Switch>
+            <Route
+              path="/character-detail/:id"
+              render={routerProps => {
+                return (
+                  <CharacterDetails
+                    routerProps={routerProps}
+                    characters={characters}
+                  />
+                );
+              }}
+            />
+          </Switch>
+        </main>
       </div>
     );
   }

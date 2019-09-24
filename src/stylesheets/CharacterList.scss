@@ -1,0 +1,21 @@
+.character_list {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 320px 320px 320px 320px;
+  grid-template-rows: 450px;
+
+  @media screen and (max-width: 1100px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+.character {
+  list-style: none;
+}
+
+.character-link {
+  text-decoration: none;
+}

@@ -1,0 +1,13 @@
+.card {
+  margin: 10px;
+  background-color: darkcyan;
+  width: 300px;
+  @media screen and (max-width: 780px) {
+    width: 300px;
+  }
+}
+
+.card__text {
+  color: white;
+  padding: 5px 0 5px 0;
+}

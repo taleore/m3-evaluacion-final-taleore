@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/CharacterCard.scss";
 
 const CharacterCard = props => {
   const { name, image, species } = props;
@@ -7,8 +8,10 @@ const CharacterCard = props => {
       <div className="card__img">
         <img src={image} alt={name}></img>
       </div>
-      <h2>{name}</h2>
-      <h3>{species}</h3>
+      <div className="card__text">
+        <h2>{name}</h2>
+        <h3>{species}</h3>
+      </div>
     </div>
   );
 };
